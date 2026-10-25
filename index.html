@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#123a8c">
+  <meta name="description" content="Genius Coaching Centre — By Ashish Sir">
+  <title>Genius Learning App</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brandmark">G</div>
+    <div><div class="brand">Genius Learning</div><div class="byline">GENIUS COACHING CENTRE · By Ashish Sir</div></div>
+    <button id="installBtn" class="install hidden" type="button">Install</button>
+  </header>
+  <main>
+    <section class="hero">
+      <span class="eyebrow">LEARN • PRACTICE • GROW</span>
+      <h1>पढ़ाई आसान,<br><span>सफलता शानदार!</span></h1>
+      <p>कक्षा 6 से 12 तक · सभी विषय</p>
+      <div class="hero-actions"><a class="primary" href="#subjects">पढ़ाई शुरू करें</a><a class="secondary" href="#tests">टेस्ट दें</a></div>
+    </section>
+    <section class="stats">
+      <div><strong>6–12</strong><span>कक्षाएँ</span></div><div><strong>All</strong><span>विषय</span></div><div><strong>24×7</strong><span>सीखने की सुविधा</span></div>
+    </section>
+    <section id="subjects" class="section">
+      <div class="section-head"><div><span class="eyebrow">YOUR CLASSROOM</span><h2>विषय चुनें</h2></div></div>
+      <div class="grid subjects">
+        <button class="tile" data-subject="गणित"><span class="tile-icon">➗</span><b>गणित</b><small>Maths</small></button>
+        <button class="tile" data-subject="विज्ञान"><span class="tile-icon">🔬</span><b>विज्ञान</b><small>Science</small></button>
+        <button class="tile" data-subject="जीव विज्ञान"><span class="tile-icon">🧬</span><b>जीव विज्ञान</b><small>Biology</small></button>
+        <button class="tile" data-subject="भौतिक विज्ञान"><span class="tile-icon">⚡</span><b>भौतिक विज्ञान</b><small>Physics</small></button>
+        <button class="tile" data-subject="रसायन विज्ञान"><span class="tile-icon">⚗️</span><b>रसायन विज्ञान</b><small>Chemistry</small></button>
+        <button class="tile" data-subject="हिंदी"><span class="tile-icon">अ</span><b>हिंदी</b><small>Hindi</small></button>
+        <button class="tile" data-subject="English"><span class="tile-icon">A</span><b>English</b><small>Grammar & more</small></button>
+        <button class="tile" data-subject="सामाजिक विज्ञान"><span class="tile-icon">🌍</span><b>सामाजिक विज्ञान</b><small>Social Science</small></button>
+        <button class="tile" data-subject="संस्कृत"><span class="tile-icon">📜</span><b>संस्कृत</b><small>Sanskrit</small></button>
+        <button class="tile" data-subject="कंप्यूटर"><span class="tile-icon">💻</span><b>कंप्यूटर</b><small>Computer</small></button>
+      </div>
+      <p class="hint">विषय चुनने पर आप अपने नोट्स और वीडियो के लिंक जोड़ने के लिए विकल्प देखेंगे।</p>
+    </section>
+    <section id="notes" class="section soft">
+      <div class="section-head"><div><span class="eyebrow">REVISION MADE EASY</span><h2>डिजिटल नोट्स</h2></div></div>
+      <div class="feature"><div class="feature-icon">📘</div><div><b>कक्षा 6–12 के नोट्स</b><p>PDF, इमेज नोट्स और अध्यायवार सारांश के लिंक यहाँ जोड़े जा सकते हैं।</p></div></div>
+      <form id="resourceForm" class="resource-form">
+        <label>नोट्स / वीडियो का नाम<input id="resourceTitle" required placeholder="जैसे: कक्षा 10 गणित — वास्तविक संख्याएँ"></label>
+        <label>लिंक (URL)<input id="resourceUrl" type="url" required placeholder="https://..."></label>
+        <label>प्रकार<select id="resourceType"><option>नोट्स</option><option>वीडियो क्लास</option><option>अध्याय सारांश</option></select></label>
+        <button class="primary full" type="submit">लिंक जोड़ें</button>
+      </form>
+      <div id="resourcesList" class="resource-list"></div>
+    </section>
+    <section id="videos" class="section">
+      <div class="section-head"><div><span class="eyebrow">WATCH & LEARN</span><h2>वीडियो क्लास</h2></div></div>
+      <div class="feature"><div class="feature-icon">▶️</div><div><b>Ashish Sir के साथ सीखें</b><p>अपने YouTube चैनल या वीडियो क्लास का लिंक ऊपर “नोट्स / वीडियो का नाम” फॉर्म से जोड़ें।</p></div></div>
+    </section>
+    <section id="tests" class="section soft">
+      <div class="section-head"><div><span class="eyebrow">PRACTICE ZONE</span><h2>डेमो ऑनलाइन टेस्ट</h2></div></div>
+      <div id="quiz" class="quiz">
+        <div class="quiz-question" id="questionText">प्रश्न लोड हो रहा है…</div>
+        <div id="answers" class="answers"></div>
+        <div class="quiz-bottom"><span id="quizProgress"></span><button id="nextQuestion" class="primary" type="button">अगला प्रश्न</button></div>
+        <p id="quizResult" class="result" aria-live="polite"></p>
+      </div>
+      <p class="hint">यह शुरुआती डेमो टेस्ट है; विद्यार्थी लॉगिन, सर्वर पर अंक सुरक्षित करना और शिक्षक डैशबोर्ड अभी शामिल नहीं हैं।</p>
+    </section>
+    <section id="profile" class="section">
+      <div class="section-head"><div><span class="eyebrow">STUDENT CORNER</span><h2>विद्यार्थी प्रोफाइल</h2></div></div>
+      <form id="profileForm" class="resource-form">
+        <label>विद्यार्थी का नाम<input id="studentName" required maxlength="60" placeholder="अपना नाम लिखें"></label>
+        <label>कक्षा<select id="studentClass"><option>कक्षा 6</option><option>कक्षा 7</option><option>कक्षा 8</option><option>कक्षा 9</option><option>कक्षा 10</option><option>कक्षा 11</option><option>कक्षा 12</option></select></label>
+        <button class="primary full" type="submit">प्रोफाइल सेव करें</button>
+      </form>
+      <div id="profileMessage" class="profile-message">आपकी प्रोफाइल इसी डिवाइस पर सेव होगी।</div>
+    </section>
+  </main>
+  <nav class="bottom-nav"><a href="#">🏠<span>होम</span></a><a href="#subjects">📚<span>विषय</span></a><a href="#notes">📝<span>नोट्स</span></a><a href="#tests">✅<span>टेस्ट</span></a><a href="#profile">👤<span>प्रोफाइल</span></a></nav>
+  <footer><b>GENIUS COACHING CENTRE</b><span>By Ashish Sir</span><small>पढ़ाई आसान, सफलता शानदार!</small></footer>
+  <dialog id="subjectDialog"><div class="dialog-inner"><button id="closeDialog" class="close" aria-label="बंद करें">×</button><div class="feature-icon">📚</div><h2 id="dialogTitle">विषय</h2><p>इस विषय के लिए नोट्स या वीडियो का लिंक जोड़ने हेतु नीचे दिए गए बटन का उपयोग करें।</p><a href="#notes" id="dialogNotes" class="primary">नोट्स / वीडियो जोड़ें</a></div></dialog>
+  <script src="./app.js"></script>
+</body>
+</html>

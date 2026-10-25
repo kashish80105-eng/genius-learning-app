@@ -1,0 +1,23 @@
+GENIUS LEARNING APP — ANDROID APK BUILD GUIDE
+==============================================
+
+यह निर्देश हैं; इस ZIP में compiled APK शामिल नहीं है।
+
+विकल्प 1 — Capacitor (वेब ऐप को Android project में पैक करना)
+1. कंप्यूटर पर Node.js LTS और Android Studio इंस्टॉल करें।
+2. web/ ऐप को HTTPS hosting पर प्रकाशित करें या Capacitor project में web assets जोड़ें।
+3. Capacitor project बनाकर Android platform जोड़ें:
+   npm install @capacitor/core @capacitor/cli
+   npx cap init "Genius Learning App" "in.geniuslearning.app"
+   npx cap add android
+   npx cap sync android
+   npx cap open android
+4. Android Studio में Gradle sync करें, ऐप चलाकर सभी स्क्रीन जाँचें।
+5. APK के लिए Build > Build Bundle(s) / APK(s) > Build APK(s) चुनें।
+6. वितरण के लिए Build > Generate Signed Bundle / APK से release signing करें।
+7. signing key सुरक्षित रखें; उसे किसी से साझा न करें।
+
+महत्वपूर्ण:
+- वास्तविक build के लिए compatible Capacitor configuration और web assets की सही जगह जरूरी है।
+- यदि ऐप online API इस्तेमाल करेगा तो API को HTTPS पर host करें और frontend में API base URL सेट करें।
+- Google Play पर प्रकाशित करने से पहले current target SDK, privacy policy, data safety form, permissions और Play policies जाँचें।
